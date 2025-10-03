@@ -1,5 +1,6 @@
 import useData from "./useData";
 import type { Genre } from "./useGenres";
+import type { Platform } from "./usePlatforms";
 
 
 export interface Platforms{
@@ -17,6 +18,13 @@ export interface Game {
 }
 
 
-const useGames =(selectedGenre: Genre|null)=>useData<Game>('/games',{params:{genres:selectedGenre?.id}},[selectedGenre?.id])//IMINJATA VO PARAMS MORA DA SE ISTI KAKO VO API
+const useGames =(selectedGenre: Genre|null,selectedPlatform: Platform | null)=>
+  useData<Game>('/games',{
+    params:{
+      genres:selectedGenre?.id, 
+      parent_platforms:selectedPlatform?.id
+      }
+    },
+    [selectedGenre?.id,selectedPlatform?.id])//IMINJATA VO PARAMS MORA DA SE ISTI KAKO VO API
 
 export default useGames;
