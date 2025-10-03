@@ -29,7 +29,8 @@ const useGames =(gameQuery:GameQuery)=>
     //IMINJATA VO PARAMS MORA DA SE ISTI KAKO VO API
     params:{
       genres:gameQuery.genre?.id, 
-      parent_platforms:gameQuery.platform?.id
+      parent_platforms:gameQuery.platform?.id,
+      ordering: gameQuery.sortOrder
       }
     },
     [gameQuery])
