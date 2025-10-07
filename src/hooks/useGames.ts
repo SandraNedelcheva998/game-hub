@@ -1,7 +1,5 @@
 import type { GameQuery } from "../App";
 import useData from "./useData";
-import type { Genre } from "./useGenres";
-import type { Platform } from "./usePlatforms";
 
 
 export interface Platforms{
@@ -19,9 +17,7 @@ export interface Game {
   rating_top:number
 }
 
-interface gameQuery{
-  gameQuery:GameQuery
-}
+
 
 const useGames =(gameQuery:GameQuery)=>
   useData<Game>('/games',{
